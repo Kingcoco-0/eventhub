@@ -205,35 +205,6 @@ const PlatformPreview: React.FC<PlatformPreviewProps> = ({
               </div>
             </div>
           </div>
-
-          {/* Bottom CTA */}
-          <div className="text-center mt-16">
-            <div className="bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-500/20 rounded-xl p-8 max-w-4xl mx-auto">
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Not sure which to choose?
-              </h3>
-              <p className="text-gray-300 mb-6">
-                You can always switch between both tools! Start with the chat assistant to plan your event, 
-                then use the image editor to visualize your ideas.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button
-                  onClick={onChooseChat}
-                  className="flex items-center justify-center px-6 py-3 bg-purple-600/20 hover:bg-purple-600/30 text-purple-300 border border-purple-600/30 rounded-lg transition-colors"
-                >
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  Start with Planning
-                </button>
-                <button
-                  onClick={onChooseImageInpainting}
-                  className="flex items-center justify-center px-6 py-3 bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-600/30 rounded-lg transition-colors"
-                >
-                  <Wand2 className="w-4 h-4 mr-2" />
-                  Start with Design
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
     </div>
