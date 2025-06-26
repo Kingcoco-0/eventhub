@@ -4,10 +4,8 @@ import {
   Filter,
   Star,
   Sparkles,
-  Wand2,
   MessageCircle,
   Bot,
-  Palette,
   Users,
   Calendar
 } from 'lucide-react';
@@ -15,13 +13,11 @@ import {
 interface PlatformPreviewProps {
   onBrowseVendors: () => void;
   onChooseChat: () => void;
-  onChooseImageInpainting: () => void;
 }
 
 const PlatformPreview: React.FC<PlatformPreviewProps> = ({ 
   onBrowseVendors, 
-  onChooseChat, 
-  onChooseImageInpainting 
+  onChooseChat
 }) => {
   const features = [
     {
@@ -86,13 +82,13 @@ const PlatformPreview: React.FC<PlatformPreviewProps> = ({
         </div>
       </section>
 
-      {/* AI Assistant Choice Section */}
+      {/* AI Assistant Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-900/20 via-gray-900 to-gray-900">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {/* Hero Section */}
           <div className="text-center mb-16">
             <div className="flex justify-center mb-6">
-              <div className="p-4 bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-full">
+              <div className="p-4 bg-gradient-to-r from-purple-600/20 to-purple-700/20 rounded-full">
                 <Bot className="w-12 h-12 text-purple-400" />
               </div>
             </div>
@@ -101,106 +97,57 @@ const PlatformPreview: React.FC<PlatformPreviewProps> = ({
               AI-Powered Event Assistant
             </h2>
             
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Choose between our intelligent event planning assistant or our powerful image editing tools 
-              to bring your event vision to life.
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
+              Get personalized event planning advice, vendor recommendations, and expert guidance 
+              to bring your perfect event to life.
             </p>
-          </div>
 
-          {/* Choice Cards */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Chat Assistant Card */}
-            <div className="group bg-gradient-to-br from-gray-800 to-gray-800/80 rounded-2xl p-8 border border-gray-700 hover:border-purple-500/50 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
-              <div className="text-center">
-                <div className="flex justify-center mb-6">
-                  <div className="p-4 bg-gradient-to-r from-purple-600/20 to-purple-700/20 rounded-full group-hover:from-purple-600/30 group-hover:to-purple-700/30 transition-all duration-300">
-                    <MessageCircle className="w-12 h-12 text-purple-400" />
+            <div className="max-w-2xl mx-auto">
+              <div className="group bg-gradient-to-br from-gray-800 to-gray-800/80 rounded-2xl p-8 border border-gray-700 hover:border-purple-500/50 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
+                <div className="text-center">
+                  <div className="flex justify-center mb-6">
+                    <div className="p-4 bg-gradient-to-r from-purple-600/20 to-purple-700/20 rounded-full group-hover:from-purple-600/30 group-hover:to-purple-700/30 transition-all duration-300">
+                      <MessageCircle className="w-12 h-12 text-purple-400" />
+                    </div>
                   </div>
-                </div>
-                
-                <h3 className="text-2xl font-bold text-white mb-4">
-                  Chat with AI Assistant
-                </h3>
-                
-                <p className="text-gray-300 mb-8 leading-relaxed">
-                  Get personalized event planning advice, vendor recommendations, budget estimates, 
-                  and expert guidance to clarify your event ideas and requirements.
-                </p>
+                  
+                  <h3 className="text-2xl font-bold text-white mb-4">
+                    Chat with AI Assistant
+                  </h3>
+                  
+                  <p className="text-gray-300 mb-8 leading-relaxed">
+                    Get personalized event planning advice, vendor recommendations, budget estimates, 
+                    and expert guidance to clarify your event ideas and requirements.
+                  </p>
 
-                {/* Features */}
-                <div className="space-y-4 mb-8">
-                  <div className="flex items-center text-gray-300">
-                    <Users className="w-5 h-5 mr-3 text-purple-400" />
-                    <span>Personalized vendor recommendations</span>
+                  {/* Features */}
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-center justify-center text-gray-300">
+                      <Users className="w-5 h-5 mr-3 text-purple-400" />
+                      <span>Personalized vendor recommendations</span>
+                    </div>
+                    <div className="flex items-center justify-center text-gray-300">
+                      <Calendar className="w-5 h-5 mr-3 text-purple-400" />
+                      <span>Event planning timeline guidance</span>
+                    </div>
+                    <div className="flex items-center justify-center text-gray-300">
+                      <Sparkles className="w-5 h-5 mr-3 text-purple-400" />
+                      <span>Budget estimation and tips</span>
+                    </div>
                   </div>
-                  <div className="flex items-center text-gray-300">
-                    <Calendar className="w-5 h-5 mr-3 text-purple-400" />
-                    <span>Event planning timeline guidance</span>
-                  </div>
-                  <div className="flex items-center text-gray-300">
-                    <Sparkles className="w-5 h-5 mr-3 text-purple-400" />
-                    <span>Budget estimation and tips</span>
-                  </div>
-                </div>
 
-                <button
-                  onClick={onChooseChat}
-                  className="w-full flex items-center justify-center px-6 py-4 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-semibold rounded-xl transition-all duration-300 transform group-hover:scale-105"
-                >
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  Start Planning Chat
-                </button>
+                  <button
+                    onClick={onChooseChat}
+                    className="w-full flex items-center justify-center px-6 py-4 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-semibold rounded-xl transition-all duration-300 transform group-hover:scale-105"
+                  >
+                    <MessageCircle className="w-5 h-5 mr-2" />
+                    Start Planning Chat
+                  </button>
 
-                <div className="mt-4 text-sm text-gray-400">
-                  Perfect for: Event planning, vendor selection, budget planning
-                </div>
-              </div>
-            </div>
-
-            {/* Image Inpainting Card */}
-            <div className="group bg-gradient-to-br from-gray-800 to-gray-800/80 rounded-2xl p-8 border border-gray-700 hover:border-purple-500/50 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
-              <div className="text-center">
-                <div className="flex justify-center mb-6">
-                  <div className="p-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full group-hover:from-blue-600/30 group-hover:to-purple-600/30 transition-all duration-300">
-                    <Wand2 className="w-12 h-12 text-blue-400" />
+                  <div className="mt-4 text-sm text-gray-400">
+                    Perfect for: Event planning, vendor selection, budget planning
                   </div>
-                </div>
-                
-                <h3 className="text-2xl font-bold text-white mb-4">
-                  AI Image Editor
-                </h3>
-                
-                <p className="text-gray-300 mb-8 leading-relaxed">
-                  Transform your event photos with AI-powered image inpainting. Remove objects, 
-                  change backgrounds, or add elements to visualize your perfect event design.
-                </p>
-
-                {/* Features */}
-                <div className="space-y-4 mb-8">
-                  <div className="flex items-center text-gray-300">
-                    <Palette className="w-5 h-5 mr-3 text-blue-400" />
-                    <span>Smart object removal & replacement</span>
-                  </div>
-                  <div className="flex items-center text-gray-300">
-                    <Wand2 className="w-5 h-5 mr-3 text-blue-400" />
-                    <span>Background transformation</span>
-                  </div>
-                  <div className="flex items-center text-gray-300">
-                    <Sparkles className="w-5 h-5 mr-3 text-blue-400" />
-                    <span>Creative design visualization</span>
-                  </div>
-                </div>
-
-                <button
-                  onClick={onChooseImageInpainting}
-                  className="w-full flex items-center justify-center px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 transform group-hover:scale-105"
-                >
-                  <Wand2 className="w-5 h-5 mr-2" />
-                  Start Image Editing
-                </button>
-
-                <div className="mt-4 text-sm text-gray-400">
-                  Perfect for: Venue visualization, design mockups, photo enhancement
                 </div>
               </div>
             </div>

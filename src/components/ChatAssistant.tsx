@@ -1,17 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Send, Bot, User, ArrowLeft, Sparkles, RotateCcw, Wand2 } from 'lucide-react';
+import { Send, Bot, User, ArrowLeft, Sparkles, RotateCcw } from 'lucide-react';
 import { ChatMessage, Vendor } from '../types';
 import { EventPlannerBot } from '../utils/chatbot';
 
 interface ChatAssistantProps {
   onBack: () => void;
-  onSwitchToImageEditor: () => void;
   contactingVendor?: Vendor | null;
 }
 
 const ChatAssistant: React.FC<ChatAssistantProps> = ({ 
   onBack, 
-  onSwitchToImageEditor, 
   contactingVendor 
 }) => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -106,7 +104,7 @@ const ChatAssistant: React.FC<ChatAssistantProps> = ({
                 className="flex items-center text-gray-300 hover:text-white transition-colors"
               >
                 <ArrowLeft className="w-5 h-5 mr-2" />
-                Back to AI Assistant
+                Back to Home
               </button>
               <div className="h-6 w-px bg-gray-600"></div>
               <div className="flex items-center space-x-3">
@@ -127,13 +125,6 @@ const ChatAssistant: React.FC<ChatAssistantProps> = ({
               >
                 <RotateCcw className="w-4 h-4 mr-2" />
                 Clear Chat
-              </button>
-              <button
-                onClick={onSwitchToImageEditor}
-                className="flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
-              >
-                <Wand2 className="w-4 h-4 mr-2" />
-                Switch to Image Editor
               </button>
             </div>
           </div>

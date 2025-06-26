@@ -5,14 +5,13 @@ import PlatformPreview from './components/PlatformPreview';
 import VendorsPage from './components/VendorsPage';
 import VendorDetails from './components/VendorDetails';
 import ChatAssistant from './components/ChatAssistant';
-import ImageInpainting from './components/ImageInpainting';
 import Footer from './components/Footer';
 import { Vendor } from './types';
 
 function App() {
   // Search and navigation state
   const [searchQuery, setSearchQuery] = useState('');
-  const [currentPage, setCurrentPage] = useState<'home' | 'vendors' | 'vendor-details' | 'chat-assistant' | 'image-inpainting'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'vendors' | 'vendor-details' | 'chat-assistant'>('home');
   const [selectedVendor, setSelectedVendor] = useState<Vendor | null>(null);
 
   // UI state
@@ -52,28 +51,9 @@ function App() {
     setCurrentPage('chat-assistant');
   }, []);
 
-  // Handle choose image inpainting
-  const handleChooseImageInpainting = useCallback(() => {
-    setCurrentPage('image-inpainting');
-  }, []);
-
   // Handle back from chat assistant
   const handleBackFromChatAssistant = useCallback(() => {
     setCurrentPage('home');
-  }, []);
-
-  // Handle back from image inpainting
-  const handleBackFromImageInpainting = useCallback(() => {
-    setCurrentPage('home');
-  }, []);
-
-  // Handle switch between AI tools
-  const handleSwitchToImageEditor = useCallback(() => {
-    setCurrentPage('image-inpainting');
-  }, []);
-
-  const handleSwitchToChatAssistant = useCallback(() => {
-    setCurrentPage('chat-assistant');
   }, []);
 
   return (
@@ -91,7 +71,6 @@ function App() {
           <PlatformPreview 
             onBrowseVendors={handleBrowseVendors}
             onChooseChat={handleChooseChatAssistant}
-            onChooseImageInpainting={handleChooseImageInpainting}
           />
           <Footer />
         </>
@@ -111,12 +90,6 @@ function App() {
       ) : currentPage === 'chat-assistant' ? (
         <ChatAssistant
           onBack={handleBackFromChatAssistant}
-          onSwitchToImageEditor={handleSwitchToImageEditor}
-        />
-      ) : currentPage === 'image-inpainting' ? (
-        <ImageInpainting 
-          onBack={handleBackFromImageInpainting}
-          onSwitchToChatAssistant={handleSwitchToChatAssistant}
         />
       ) : null}
     </div>
